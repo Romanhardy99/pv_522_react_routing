@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Header from './Components/Header'
+import NavMenu from './Components/NavMenu';
 import Home from './Components/Home';
 import About from './Components/About';
 import Articles from './Components/Articles';
@@ -10,18 +11,20 @@ function App() {
     return (
         <div className="App">
             <Header />
-            <nav>
-                <ul>
-                    <li><NavLink to="/">            Home        </NavLink> </li>
-                    <li><NavLink to="/about">       About       </NavLink> </li>
-                    <li><NavLink to="/articles">    Articles    </NavLink> </li>
-                </ul>
-            </nav>
-            <Routes>
+            {/* <NavMenu/> */}
+            {/* <Routes>
                 <Route path="/"             element={<Home />}      />
                 <Route path="about"         element={<About />}     />
                 <Route path="articles"      element={<Articles />}  />
+            </Routes> */}
+            <Routes>
+                <Route path="/" element={<NavMenu />} >
+                    <Route index                element={ <Home/> }      />
+                    <Route path="about"         element={<About /> }     />
+                    <Route path="articles"      element={<Articles /> }  />
+                </Route>
             </Routes>
+            
         </div >
     );
 }
